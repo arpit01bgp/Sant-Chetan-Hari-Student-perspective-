@@ -12,19 +12,76 @@
 
 </marquee> 
 <h1>Welcome to Sant Chetan Hari Sarswati Vidya Mandir </h1><br> 
+    
+    <style>
+        .slider {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slides img {
+            width: 100%;
+        }
+        .prevBtn, .nextBtn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            z-index: 1000;
+        }
+        .prevBtn {
+            left: 0;
+        }
+        .nextBtn {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
     <div class="slider">
         <div class="slides">
             <img src="image1.jpg" alt="Image 1">
             <img src="image2.jpg" alt="Image 2">
             <img src="image3.jpg" alt="Image 3">
-            <img src="image4.jpg" alt="Image 1">
-            <img src="image5.jpg" alt="Image 2">
-            <img src="image6.jpg" alt="Image 3">
-            <!-- Add more images as needed -->
+            <img src="image4.jpg" alt="Image 4">
+            <img src="image5.jpg" alt="Image 5">
+            <img src="image6.jpg" alt="Image 6">
         </div>
-        <button class="prevBtn" onclick="changeSlide(-1)">Previous</button>
-        <button class="nextBtn" onclick="changeSlide(1)">Next</button>
+        <button class="prevBtn" onclick="plusSlides(-1)">Previous</button>
+        <button class="nextBtn" onclick="plusSlides(1)">Next</button>
     </div>
+
+    <script>
+        let slideIndex = 0;
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            const slides = document.querySelectorAll('.slides img');
+            if (n >= slides.length) {
+                slideIndex = 0;
+            }
+            if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+            slides.forEach(slide => slide.style.display = 'none');
+            slides[slideIndex].style.display = 'block';
+        }
+
+        showSlides(slideIndex);
+    </script>
+
+	
 
 <h2>Introduction</h2>
 Sant Chetan Hari Sarswati Vidya Mandir is a beacon of education located in the heart of Satghara, Habibpur, Bhagalpur. Established in 2008, School has been dedicated to providing quality education to the students of school's community for over a decade.
